@@ -1,0 +1,21 @@
+/* ─── Universal reset — must be on *, not just html/body ─────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Root elements ──────────────────────────────────────────── */
+html {
+  background: #000;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}/* You can add global styles to this file, and also import other style files */

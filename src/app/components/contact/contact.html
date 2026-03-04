@@ -1,0 +1,33 @@
+<section id="contactme">
+    <div class="hidden">
+        <div class="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact Me</h1>
+                        <p><i class="fa-solid fa-paper-plane"></i>vedantadulkar22@gmail.com</p>
+                        <p><i class="fa-solid fa-phone"></i>9619161917</p>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/in/vedant-adulkar" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://wa.me/qr/2KMEI32IGYQDB1" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/vedantadulkar?igsh=MW43NTRnZGJ5c2UxOQ==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                            <a  (click)="copyEmail()"><i class="fa-regular fa-envelope"></i></a>
+                            <div class="pop" *ngIf="copied">Email Copied!</div>
+                        </div>
+                        <a href="/src/assets/VEDANT_ADULKAR_RESUME.pdf" download class="btn btn2">Download CV</a>
+                    </div>
+                    <div class="contact-right">
+                        <form (ngSubmit)="onSubmit($event)">
+                            <input type="text"  name="from_name"  placeholder="Your Name"    required>
+                            <input type="email" name="from_email" placeholder="Your Email"   required>
+                            <textarea           name="message"    rows="6" placeholder="Your Message"></textarea>
+                            <button type="submit" class="btn btn2" [disabled]="sending">
+                                {{ sending ? 'Sending...' : sent ? 'Sent ✓' : 'Submit' }}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>

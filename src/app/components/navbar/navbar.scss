@@ -1,0 +1,73 @@
+// You can define your theme color as a variable
+$primary-color: #ff004f;
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px 5%;
+  position: fixed;           /* ← locked to top always */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+      //align-items: center;
+      //justify-content: space-between;
+      //padding: 0.9rem 2.5rem;
+
+      /* Blurry transparent background */
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  transition: background 0.3s ease;
+
+  .nav-logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      cursor: default;
+      top: 0.65rem;
+      left: 5.2rem;
+  }
+
+ .logo-v {
+      color: #e8000d;
+  }
+
+  ul {
+    li {
+      display: inline-block;
+      list-style: none;
+      margin: 10px 20px;
+      padding-left: 25px;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        position: relative;
+
+        &::after {
+          content: '';
+          width: 0;
+          height: 3px;
+          background: $primary-color;
+          position: absolute;
+          left: 0;
+          bottom: -6px;
+          transition: 0.4s;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

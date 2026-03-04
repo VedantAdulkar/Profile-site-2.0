@@ -1,0 +1,95 @@
+/* styles.scss */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+app-root {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+}
+
+/* ─── Header wrapper ─────────────────────────────────────────── */
+#header {
+  position: relative;        /* anchor for all absolute children */
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;   /* horizontal center */
+  align-items: center;       /* vertical center */
+}
+
+/* ─── Canvas fills the entire #header behind everything ─────── */
+/* app-hyperspeed already uses position:absolute inside,
+   but we also need the host element itself to be absolute */
+app-hyperspeed {
+  position: absolute !important;
+  inset: 0 !important;       /* top:0 right:0 bottom:0 left:0 */
+  z-index: 0;                /* behind text */
+}
+
+/* ─── Top-left role label ────────────────────────────────────── */
+.header-text {
+  position: absolute;        /* out of flex flow */
+  top: 80px;
+  left: 80px;
+  z-index: 3;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.05em;
+}
+
+/* ─── Centered tagline ───────────────────────────────────────── */
+.main-line {
+  position: relative;        /* stays IN flex flow → gets centered */
+  z-index: 3;
+  text-align: center;
+  max-width: 700px;
+  padding: 0 2rem;
+  background: transparent;
+
+  p {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 600;
+    line-height: 1.6;
+    color: #fff;
+    background: transparent;
+    text-shadow:
+      0 0 18px rgba(3, 179, 195, 0.9),
+      0 0 40px rgba(3, 179, 195, 0.4);
+  }
+}
+
+/* ─── Fade gradient at bottom ────────────────────────────────── */
+.fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, #000);
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+
+
+/* ── Site wrapper — invisible until intro done ── */
+.site-wrapper {
+  //opacity: 0;
+  //visibility: hidden;
+  transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+
+.site-wrapper.site-visible {
+  opacity: 1;
+  visibility: visible;
+}
+

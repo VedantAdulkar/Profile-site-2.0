@@ -1,0 +1,31 @@
+<!-- app.html -->
+
+<!-- ① Intro overlay — plays first, then emits (done) -->
+<app-intro (done)="onIntroDone()"></app-intro>
+
+<!-- ② Main site — hidden until intro finishes, then fades in -->
+<div class="site-wrapper" [class.site-visible]="siteVisible">
+
+  <app-navbar></app-navbar>
+
+  <div id="header">
+    <app-hyperspeed></app-hyperspeed>
+    <div class="header-text">AI/ML &amp; Data Engineer</div>
+    <div class="main-line">
+      <p>
+        <app-typing
+          *ngIf="siteVisible"
+          text="Discovering patterns others overlook because data always quietly reveals its nature"
+          [speed]="55"
+          [startDelay]="400">
+        </app-typing>
+      </p>
+    </div>
+    <div class="fade"></div>
+  </div>
+
+  <app-aboutme></app-aboutme>
+  <app-proficiencies></app-proficiencies>
+  <app-projects></app-projects>
+  <app-contact></app-contact>
+</div>
