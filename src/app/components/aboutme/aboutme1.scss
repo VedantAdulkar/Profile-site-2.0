@@ -1,0 +1,227 @@
+#about {
+  padding: 80px 6% 40px;
+  color: #ababab;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* ── Desktop image column ── */
+#about-col-1 {
+  flex-basis: 30%;
+  min-width: 220px;
+}
+#about-col-1 img {
+  width: 100%;
+  border-radius: 29px;
+  display: block;
+}
+
+/* ── Desktop text column ── */
+#about-col-2 {
+  flex-basis: 60%;
+  min-width: 280px;
+  padding-top: 25px;
+}
+
+.sub-title1 {
+  font-size: clamp(2rem, 5vw, 50px);
+  font-weight: 600;
+  color: #fff;
+  padding-bottom: 10px;
+}
+
+#about-col-2 p {
+  font-size: clamp(0.95rem, 1.5vw, 1.3rem);
+  line-height: 1.7;
+}
+
+.tab-titles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 20px 0 40px;
+}
+
+.tab-links {
+  margin-right: 30px;
+  font-size: clamp(14px, 1.5vw, 18px);
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-links::after {
+  content: '';
+  width: 0; height: 3px;
+  background: #ff004f;
+  position: absolute;
+  left: 0; bottom: -8px;
+  transition: 1s;
+}
+.tab-links.active-link::after { width: 100%; }
+
+.tab-contents ul li {
+  list-style: none;
+  margin: 10px 0;
+  font-size: clamp(0.85rem, 1.3vw, 1rem);
+  line-height: 1.6;
+}
+.tab-contents ul li span {
+  color: #b54769;
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-style: oblique;
+}
+
+.tab-contents { display: none; }
+.tab-contents.active-tab { display: block; }
+
+/* ── Mobile flip card — hidden on desktop ── */
+.mobile-flip-card { display: none; }
+
+/* ── Tablet ── */
+@media (max-width: 900px) {
+  #about-col-1 { flex-basis: 100%; max-width: 320px; margin: 0 auto; }
+  #about-col-2 { flex-basis: 100%; padding-top: 1rem; }
+  .row { justify-content: center; }
+}
+
+/* ── Mobile: show flip card, hide desktop columns ── */
+@media (max-width: 480px) {
+  #about { padding: 50px 5% 30px; }
+
+  /* Hide desktop layout */
+  #about-col-1,
+  #about-col-2 { display: none !important; }
+
+  /* Show flip card */
+  .mobile-flip-card {
+    display: block;
+    width: 100%;
+    perspective: 1200px;
+    cursor: pointer;
+    /* height auto — driven by content on back */
+  }
+
+  .mobile-flip-inner {
+    position: relative;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.75s cubic-bezier(0.77, 0, 0.18, 1);
+  }
+
+  .mobile-flip-card.flipped .mobile-flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* Shared face */
+  .mobile-flip-front,
+  .mobile-flip-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  /* ── FRONT: image with overlay ── */
+  .mobile-flip-front {
+    position: relative;
+    /* height = natural image height */
+  }
+
+  .mobile-flip-front img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    /* slight dark tint so overlay reads better */
+    filter: brightness(0.82);
+  }
+
+  /* "About Me." overlay at bottom */
+  .mobile-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 2.5rem 1.4rem 1.4rem;
+    /* lean gradient — low opacity, just a hint */
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.35) 55%,
+      transparent 100%
+    );
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .mobile-overlay .sub-title1 {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+    font-weight: 700;
+    color: #fff;
+    padding-bottom: 0;
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  /* ── BACK: text content ── */
+  .mobile-flip-back {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 1.6rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    /* allow scroll if content overflows */
+    overflow-y: auto;
+  }
+
+  .mobile-flip-back p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #ababab;
+  }
+
+  .mobile-flip-back .tab-titles {
+    margin: 8px 0 20px;
+    gap: 0.3rem;
+  }
+
+  .mobile-flip-back .tab-links {
+    font-size: 14px;
+    margin-right: 18px;
+  }
+
+  .mobile-flip-back .tab-contents ul li {
+    font-size: 0.82rem;
+  }
+
+  .mobile-flip-back .tab-contents ul li span {
+    font-size: 13px;
+  }
+
+  /* flip hint */
+  .flip-hint-mob {
+    font-family: 'Courier New', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .flip-hint-mob.back {
+    display: block;
+    margin-top: auto;
+    padding-top: 1rem;
+    color: rgba(255,255,255,0.25);
+    text-align: center;
+  }
+}

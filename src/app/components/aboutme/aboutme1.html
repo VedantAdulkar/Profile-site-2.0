@@ -1,0 +1,110 @@
+<section id="about">
+    <div class="container">
+        <div class="row">
+
+            <!-- ── DESKTOP: normal image column ── -->
+            <div id="about-col-1" class="reveal-left">
+                <img src="/assets/user.jpg">
+            </div>
+
+            <!-- ── MOBILE ONLY: flip card wrapping image + about text ── -->
+            <div class="mobile-flip-card reveal" [class.flipped]="mobileFlipped" (click)="toggleMobileFlip()">
+              <div class="mobile-flip-inner">
+
+                <!-- FRONT: image with "About Me." overlay -->
+                <div class="mobile-flip-front">
+                  <img src="/assets/user.jpg">
+                  <div class="mobile-overlay">
+                    <h1 class="sub-title1">About Me.</h1>
+                    <span class="flip-hint-mob">tap to read ↩</span>
+                  </div>
+                </div>
+
+                <!-- BACK: about text + tabs -->
+                <div class="mobile-flip-back">
+                  <p>
+                    I'm a curious coder with a knack for problem-solving and a passion for technology's impact on our lives.
+                    A good listener, I value learning from others and have a broad creative outlook.
+                    With a natural leadership mindset, I also enjoy managing projects and believe in inclusive, kind communities.
+                  </p>
+
+                  <div class="tab-titles">
+                    <p class="tab-links"
+                       [class.active-link]="activeTab === 'skills'"
+                       (click)="opentab('skills'); $event.stopPropagation()">Skills</p>
+                    <p class="tab-links"
+                       [class.active-link]="activeTab === 'education'"
+                       (click)="opentab('education'); $event.stopPropagation()">Education</p>
+                    <p class="tab-links"
+                       [class.active-link]="activeTab === 'experience'"
+                       (click)="opentab('experience'); $event.stopPropagation()">Experience</p>
+                  </div>
+
+                  <div class="tab-contents" id="skills-m" [class.active-tab]="activeTab === 'skills'">
+                    <ul>
+                      <li><span>AI</span><br>Automizing Process</li>
+                      <li><span>ML</span><br>Utilizing ML Algorithm</li>
+                      <li><span>Data Analytics</span><br>Handling Big Data</li>
+                      <li><span>Web Development</span><br>Web App Development</li>
+                      <li><span>Database Handling</span><br>Database Handling & Connectivity</li>
+                    </ul>
+                  </div>
+                  <div class="tab-contents" id="education-m" [class.active-tab]="activeTab === 'education'">
+                    <ul>
+                      <li><span>SSC</span><br>at A.E.S High School</li>
+                      <li><span>HSC</span><br>at Elphinstone College</li>
+                      <li><span>B.E. in AI&DS</span><br>at Terna Engineering College</li>
+                    </ul>
+                  </div>
+                  <div class="tab-contents" id="experience-m" [class.active-tab]="activeTab === 'experience'">
+                    <ul>
+                      <li><span>FINTELLIX (Associate Consultant)</span><br>Assisting in end-to-end data pipeline handling and delivering actionable insights across financial and risk domains.</li>
+                    </ul>
+                  </div>
+
+                  <span class="flip-hint-mob back">tap to flip back ↩</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ── DESKTOP: about text column ── -->
+            <div id="about-col-2" class="reveal-right">
+                <h1 class="sub-title1">About Me.</h1>
+                <p>
+                    I'm a curious coder with a knack for problem-solving and a passion for technology's impact on our lives.
+                    A good listener, I value learning from others and have a broad creative outlook.
+                    With a natural leadership mindset, I also enjoy managing projects and believe in inclusive, kind communities.
+                </p>
+                <div class="tab-titles">
+                    <p class="tab-links" [class.active-link]="activeTab === 'skills'" (click)="opentab('skills')">Skills</p>
+                    <p class="tab-links" [class.active-link]="activeTab === 'education'" (click)="opentab('education')">Education</p>
+                    <p class="tab-links" [class.active-link]="activeTab === 'experience'" (click)="opentab('experience')">Experience</p>
+                </div>
+                <div class="tab-contents" id="skills" [class.active-tab]="activeTab === 'skills'">
+                    <ul>
+                        <li><span>AI</span><br>Automizing Process</li>
+                        <li><span>ML</span><br>Utilizing ML Algorithm</li>
+                        <li><span>Data Analytics</span><br>Handling Big Data</li>
+                        <li><span>Web Development</span><br>Web App Development</li>
+                        <li><span>Database Handling</span><br>Database Handling & Connectivity</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education" [class.active-tab]="activeTab === 'education'">
+                    <ul>
+                        <li><span>SSC</span><br>at A.E.S High School</li>
+                        <li><span>HSC</span><br>at Elphinstone College</li>
+                        <li><span>B.E. in AI&DS</span><br>at Terna Engineering College</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience" [class.active-tab]="activeTab === 'experience'">
+                    <ul>
+                        <li><span>FINTELLIX (Associate Consultant)</span><br>Assisting in end-to-end data pipeline handling and delivering actionable insights across financial and risk domains. Working on systems like ADP, NPA, and CIMS, contributing to data-driven reporting, risk assessment, and process optimization using my AI & Data Science background.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

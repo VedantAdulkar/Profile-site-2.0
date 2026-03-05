@@ -29,6 +29,8 @@ import { CommonModule } from '@angular/common';
     }
     .typed-text {
       display: inline;
+      font-family: 'Shalimar-Regular';
+      font-size: 70px;
     }
     .cursor {
       display: inline-block;

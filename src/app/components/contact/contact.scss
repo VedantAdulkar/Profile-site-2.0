@@ -131,3 +131,29 @@ form .btn2{
 .contact{
     padding: 10px 10%;
 }
+
+@media (max-width: 900px) {
+ .contact-left{ flex-basis: 100%; max-width: 320px; margin: 0 auto;}
+ .contact-right { flex-basis: 100%; padding-top: 1rem;}
+ form .btn2{align-items: center;}
+}
+
+
+@media (max-width: 480px) {
+  .contact-left{
+    flex-basis: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  form {
+    flex-basis: 100%;
+    padding-top: 1rem;
+  }
+
+  form .btn2{
+    display: block;
+    margin: 20px auto;
+  }
+}
+

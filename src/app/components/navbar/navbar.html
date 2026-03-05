@@ -1,11 +1,20 @@
 <nav>
-   <div class="nav-logo">
-        <span class="logo-v">V</span>edant.
+   <div class="nav-logo"  (click)="reloadPage()">
+        <div class="nav-name">
+                <span class="logo-v">V</span>edant.
+        </div>
+        <span class="nav-subtitle">AI/ML & Data Engineer</span>
     </div>
-    <ul>
-        <li><a href="#">HOME</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contactme">Contact</a></li>
+  
+  <!-- Hamburger for mobile -->
+  <div class="hamburger" [class.open]="menuOpen" (click)="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+    <ul [class.open]="menuOpen">
+        <li><a href="#" (click)="goToSection('home')">HOME</a></li>
+        <li><a href="#about" (click)="goToSection('about')">About</a></li>
+        <li><a href="#projects" (click)="goToSection('projects')">Projects</a></li>
+        <li><a href="#contactme" (click)="goToSection('contactme')">Contact</a></li>
     </ul>
 </nav>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,5 +8,24 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navbar.scss',
 })
 export class Navbar {
+  menuOpen = false;
+  scrolled = false;
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  reloadPage() {
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  window.location.reload();
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+    this.cdr.markForCheck();
+  }
+
+  goToSection(id: string) {
+  document.getElementById(id)?.scrollIntoView({
+    behavior: 'smooth'
+  });
+}
 }

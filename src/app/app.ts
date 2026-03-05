@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, signal, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { Navbar } from './components/navbar/navbar';
 import { HyperspeedComponent } from './components/fronttab/fronttab';
-import { Aboutme } from './components/aboutme/aboutme';
+import { Aboutme1 } from './components/aboutme/aboutme1';
 import { TypingComponent } from './components/typing/typing';
 import { IntroComponent } from './components/intro/intro';
 import { ProficienciesComponent } from './components/Proficiencies/proficiencies';
@@ -19,7 +19,7 @@ import { Projects } from './components/projects/projects'
     Navbar,
     HyperspeedComponent,
     TypingComponent,
-    Aboutme,
+    Aboutme1,
     IntroComponent,
     ProficienciesComponent,
     Contact,
@@ -38,4 +38,9 @@ export class App {
     this.siteVisible = true;
     this.cdr.markForCheck();
   }
+
+  reloadPage() {
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  window.location.reload();
+}
 }

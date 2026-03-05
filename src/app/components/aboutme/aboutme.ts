@@ -12,4 +12,12 @@ export class Aboutme {
   opentab(tabName: string) {
     this.activeTab = tabName;
   }
+
+  ngAfterViewInit() {
+    const els = document.querySelectorAll('#about .reveal-left, #about .reveal-right');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 4.15 });
+    els.forEach(el => obs.observe(el));
+  }
 }

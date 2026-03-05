@@ -70,8 +70,8 @@ import { CommonModule } from '@angular/common';
 
     /* ── Morphed: top-left (matches your navbar position) ── */
     .logo-wrap.move-to-corner {
-      top: 0.65rem;
-      left: 4.8rem;
+      top: 0.60rem;
+      left: 4.7rem;
       transform: translate(0, 0);
       font-size: clamp(2.5rem, 2vw, 1.6rem);
     }
@@ -99,6 +99,23 @@ import { CommonModule } from '@angular/common';
 
     .logo-rest.reveal {
       clip-path: inset(0 0% 0 0);
+    }
+
+    @media (max-width: 900px) {
+      .logo-wrap.move-to-corner {
+      top: 0.60rem;
+      left: 3rem;
+      transform: translate(0, 0);
+      font-size: clamp(2.5rem, 2vw, 1.6rem);
+    }
+
+    @media (max-width: 480px) {
+      .logo-wrap.move-to-corner {
+      top: 0.4rem;
+      left: 1.3rem;
+      transform: translate(0, 0);
+      font-size: clamp(2.5rem, 2vw, 1.6rem);
+  }}
     }
   `],
 })
